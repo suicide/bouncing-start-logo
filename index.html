@@ -1,13 +1,83 @@
 <html>
-    <head>
-        <title>Bouncing DVD Logo</title>
-        <style>
-            * {margin:0; padding: 0; color:red;}
-        </style>
-    </head>
+  <head>
+    <title>Bouncing DVD Logo</title>
+    <style>
+      body {
+        margin: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+        color: #fff;
+        font-family: Helvetica;
+      }
 
-    <body>
-        <canvas id="tv-screen"></canvas>
-        <script src="js/app.js"></script>
-    </body>
+      #animation-background {
+        height: 100vh;
+        width: 100vw;
+        background-color: #0a0a0a;
+      }
+
+      #dvd {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        height: 200px;
+        width: 400px;
+        mask: url("./dvd_logo.svg");
+        -webkit-mask: url("./dvd_logo.svg");
+        background-repeat: no-repeat;
+        background-size: 75px;
+        background-position: center;
+      }
+      .bottom {
+        font-size: 140px;
+        -webkit-clip-path: inset(58% 0 0 0);
+        clip-path: inset(58% 0 0 0);
+      }
+
+      .top {
+        -webkit-clip-path: inset(0 0 41% 0);
+        clip-path: inset(0 0 41%);
+      }
+
+      .redShadow {
+        text-shadow: -3px 0 red;
+      }
+      .greenShadow {
+        text-shadow: -3px 0 red;
+      }
+
+      .glitch {
+        position: absolute;
+      }
+
+      #txt {
+        margin: auto;
+        position: absolute;
+        top: 33%;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 682px;
+        /* height: 100px; */
+        text-align: center;
+        z-index: 2;
+        font-size: 140px;
+        font-weight: 800;
+        color: #fff;
+        text-transform: uppercase;
+      }
+    </style>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+  </head>
+
+  <body>
+    <div id="animation-background">
+      <div id="dvd"></div>
+    </div>
+    <div id="txt">
+      <div class="glitch top">Starting Soon</div>
+      <div class="glitch bottom">Starting Soon</div>
+    </div>
+    <script src="js/app.js"></script>
+  </body>
 </html>
